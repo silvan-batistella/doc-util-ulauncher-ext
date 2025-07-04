@@ -1,0 +1,40 @@
+{
+  "required_api_version": "^2.0.0",
+  "name": "Doc utils",
+  "description": "Beautify, Minify or Check files JSON or XML using the command 'doc'.",
+  "developer_name": "Silvan S. Batistella",
+  "icon": "images/icon.png",
+  "options": {
+    "query_debounce": 0.1
+  },
+  "preferences": [
+    {
+      "id": "demo_kw",
+      "type": "keyword",
+      "name": "Palavra-chave principal",
+      "description": "Atalho principal para ativar a extensão",
+      "default_value": "doc"
+    },
+    {
+      "id": "alias_beautify",
+      "type": "text",
+      "name": "Apelido para Beautify",
+      "description": "Ex: b, bf, beaut",
+      "default_value": "beautify"
+    },
+    {
+      "id": "alias_check",
+      "type": "text",
+      "name": "Apelido para Check",
+      "description": "Ex: c, chk, val",
+      "default_value": "check"
+    },
+    {
+      "id": "alias_minify",
+      "type": "text",
+      "name": "Apelido para Minify",
+      "description": "Ex: m, min, compact",
+      "default_value": "minify"
+    }
+  ]
+}
