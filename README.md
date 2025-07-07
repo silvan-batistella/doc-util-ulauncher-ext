@@ -1,78 +1,103 @@
-# Doc Utils - Ulauncher Extension
+# 📦 DocUtils for Ulauncher
 
-📄 **Doc Utils** é uma extensão para o [Ulauncher](https://ulauncher.io) que permite **formatar, minificar e validar** arquivos ou trechos de texto em **JSON** ou **XML**, diretamente da launcher.
+Uma extensão para o [Ulauncher](https://ulauncher.io/) que permite **minificar**, **embelezar (beautify)** e **validar (check)** conteúdos JSON e XML diretamente pelo launcher.
 
----
+<br>
 
-## 🚀 Funcionalidades
+## ✨ Funcionalidades
 
-- 🔍 **Autodetecção** do tipo (JSON ou XML)
-- 🎨 `prettier` — Formata com indentação e quebras de linha
-- 📦 `minifier` — Compacta o conteúdo removendo espaços
-- ✅ `validate` — Verifica se o conteúdo é válido e indica o tipo
-- 📂 Suporte a arquivos locais com prefixo `file:///`
-- 🧠 Autocomplete de caminhos de arquivos/pastas
-- 📋 Copia o resultado direto para a área de transferência
-- 🐧 Compatível com qualquer distribuição Linux
+- ✅ **Check**: Valida arquivos JSON ou XML.
+- 🧹 **Beautify**: Formata JSON ou XML com indentação.
+- 📉 **Minify**: Remove espaços e quebras de linha para compactação.
+- ⚙️ **Aliases personalizados** para comandos.
+- 🧠 Destaque da linha com erro (caso haja).
 
----
+<br>
 
-## ✨ Exemplos de uso
+## 🚀 Instalação
 
-### ✅ Formatar JSON
-```bash
-doc beautify {"nome":"Silvan","idade":33}
-```
+### 1. ✅ Instalação Automática via Ulauncher
 
-### ✅ Minificar XML
-```bash
-doc minify <pessoa><nome>Silvan</nome></pessoa>
-```
+1. Abra o Ulauncher e digite `ext`, depois pressione Enter.
+2. A página de extensões será aberta no navegador.
+3. Clique em **"Add Extension"**.
+4. Cole o link abaixo e clique em **Add**:
 
-### ✅ Validar arquivo XML
-```bash
-doc check file:///home/seuusuario/nota.xml
-```
-
-<!-- ### ✅ Autocompletar caminhos
-Digite:
-```bash
-doc prettier file:///
-```
-Use as setas para navegar pelas sugestões.
-
---- -->
-
-## 🛠 Instalação
-
-Para facilitar a instalação, geramos um script para instalar a extensão, para isto basta dar permissão de execução ao arquivo e executar
-
-### 1. Conceder permissão ao arquivos install.sh
-Executar o seguinte comando dentro da pasta clonada
-```bash
-sudo chmod +x install.sh
-```
-
-### 2. Executar a instalação
-```bash
-./install.sh
-```
+   👉 [https://github.com/silvan-batistella/doc-util-ulauncher-ext](https://github.com/silvan-batistella/doc-util-ulauncher-ext)
 
 ---
 
-## 🐞 Logs e Debug
+### 2. 📦 Instale as dependências Python (necessário)
 
-Todos os eventos e erros são registrados em:
+O Ulauncher **não instala automaticamente** as bibliotecas Python usadas pela extensão. Você precisa fazer isso uma vez após a instalação:
+
+#### 2.1. Encontre o caminho da extensão:
+
+```bash
+find ~/.local/share/ulauncher/extensions/ -name requirements.txt
 ```
-~/.local/share/ulauncher/extensions/com.github.seunome.docutils/logs.txt
+
+O caminho retornado será algo como:
+
+```bash
+~/.local/share/ulauncher/extensions/com.github.silvan-batistella.doc-util-ulauncher-ext/requirements.txt
 ```
 
-## 📤 Contribuições
+#### 2.2. Instale os pacotes Python:
 
-Sinta-se livre para abrir *issues* ou fazer *pull requests*! Vamos deixar essa extensão insana juntos 😄
+```bash
+pip install --user -r /CAMINHO/requirements.txt
+```
+
+Substitua `/CAMINHO/requirements.txt` pelo caminho exato encontrado acima.
+
+Ou, se estiver usando `pip3`:
+
+```bash
+pip3 install --user -r /CAMINHO/requirements.txt
+```
+
+#### 2.3. Instale dependências do sistema (para Ubuntu/Debian):
+
+```bash
+sudo apt install libxml2-dev libxslt1-dev python3-dev
+```
 
 ---
 
-## 📜 Licença
+## 🧪 Como usar
 
-MIT — Use livremente, sem moderação.
+Abra o Ulauncher (`Ctrl + Space`) e digite `doc`, seguido de uma das opções:
+
+- `beautify`
+- `minify`
+- `check`
+
+Cole seu JSON ou XML após o comando e veja o resultado diretamente no launcher.
+
+---
+
+## ⚙️ Configurações personalizadas
+
+A extensão permite configurar **apelidos (aliases)** para os comandos diretamente pela interface do Ulauncher:
+
+| Configuração          | Função              | Padrão    |
+|-----------------------|---------------------|-----------|
+| Alias for Beautify    | Atalho para beautify| beautify  |
+| Alias for Minify      | Atalho para minify  | minify    |
+| Alias for Check       | Atalho para check   | check     |
+
+Você pode usar comandos como:
+
+```bash
+doc beautify {"name": "exemplo"}
+doc minify {"foo": "bar"}
+doc check <xml><tag/></xml>
+```
+
+---
+
+## 📄 Licença
+
+MIT © 2025  
+[Silvan S. Batistella](https://github.com/silvan-batistella)
